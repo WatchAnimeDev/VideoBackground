@@ -22,14 +22,6 @@
                 left: 0;
                 z-index: -998;
             }
-            .mute-button {
-                width: 25px;
-                height: 25px;
-                background-color: red;
-                right: 150px;
-                position: absolute;
-                bottom: 125px;
-            }
         </style>
     </head>
     <body>
@@ -37,19 +29,12 @@
             <p>Your browser doesn't support video. Please <a href="http://browsehappy.com/">upgrade your browser</a> to see the example.</p>
             <source type="video/mp4" />
         </video>
-        <div class="mute-button"></div>
         <script src="https://vjs.zencdn.net/5.16.0/video.min.js"></script>
         <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
         <script src="https://rawgit.com/matthojo/videojs-Background/master/dist/videojs-background.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.3.3/videojs-contrib-hls.min.js"></script>
         <script>
             var stack = [];
-            function test(evt) {
-                stack.push(evt.data);
-
-                player && player.volume(1);
-            }
-            window.addEventListener("message", test, false);
             var player = null;
             window.addEventListener("DOMContentLoaded", (event) => {
                 var params = new URL(window.location.href);
@@ -65,7 +50,6 @@
                     mediaType: "html5",
                     autoPlay: "false",
                 });
-                // player.pause().currentTime(0).trigger("loadstart");
             });
         </script>
     </body>
